@@ -1,0 +1,48 @@
+一、安装ubuntu server
+
+二、安装rpm
+      sudo apt-get install rpm
+
+三、安装chkconfig
+      sudo apt-get install chkconfig
+
+四、安装vsftpd
+      sudo apt-get install vsftpd
+      查看vsftpd服务状态：service vsftpd status
+      启动vsftpd服务：service vsftpd start
+      配置vsftpd：
+                 #anonymous_enable=YES
+                 local_enable=YES
+                 write_enable=YES
+                 local_umask=022
+
+五、在本地安装FileZillaClient
+
+
+六、安装jdk
+      sudo apt-get install openjdk-7-jdk
+
+七、安装mysql5.5
+      sudo apt-get install mysql-server
+      mysql -u root -p
+
+八、安装tomcat6
+      sudo apt-get install tomcat6
+      sudo service tomcat6 start 
+
+九、建立数据库
+      create database openfire;
+      show databases;
+
+十、安装openfire
+      rpm -ivh --nodeps openfire*.rpm
+
+十一、导入sql文件
+      mysql -u root -p
+      use openfire
+      source /opt/openfire/resources/database/openfire_mysql.sql（sql文件路径）
+
+十二、配置openfire(openfire自带Web服务器）
+      启动openfire: /etc/init.d/openfire   /etc/init.d/openfire start
+      打开浏览器输入：http://ip:9090/ 
+      进入配置页面进行配置
