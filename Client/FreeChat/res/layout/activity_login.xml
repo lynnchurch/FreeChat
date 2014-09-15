@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="55dp" >
+
+        <ImageView
+            android:id="@+id/iv_username"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/portrait" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="106dp"
+        android:layout_marginLeft="@dimen/theme_margin"
+        android:layout_marginRight="@dimen/theme_margin"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/login" >
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_height"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginTop="11dp"
+            android:background="@null"
+            android:hint="@string/username"
+            android:singleLine="true"
+            android:textSize="@dimen/theme_textsize" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_height"
+            android:layout_below="@+id/username"
+            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginRight="@dimen/text_margin"
+            android:layout_marginTop="3dp"
+            android:background="@null"
+            android:hint="@string/passwd"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textSize="@dimen/theme_textsize" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/theme_margin"
+        android:layout_marginRight="@dimen/theme_margin" >
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="@dimen/btn_margin_top"
+            android:background="@drawable/btn_bg_blue"
+            android:onClick="login"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="@dimen/theme_textsize" >
+        </Button>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="35dp" >
+
+        <TextView
+            android:id="@+id/tv_findpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:onClick="findPassword"
+            android:text="@string/find_password"
+            android:textColor="@color/link_color"
+            android:textSize="@dimen/link_textsize" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_userregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/userregister"
+            android:textSize="@dimen/link_textsize" >
+        </TextView>
+    </RelativeLayout>
+
+</LinearLayout>
