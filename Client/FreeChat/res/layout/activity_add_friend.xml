@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.free.ui.view.OverScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/OverScroller"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_color"
+        android:layout_marginLeft="@dimen/theme_margin"
+        android:layout_marginRight="@dimen/theme_margin"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/email_hint"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_height"
+            android:layout_marginTop="15dp"
+            android:text="@string/add_friend_hint"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/hint_textsize" />
+
+        <EditText
+            android:id="@+id/email_address"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_height"
+            android:background="@drawable/fillet"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/text_margin"
+            android:paddingRight="@dimen/text_margin"
+            android:singleLine="true"
+            android:textSize="@dimen/theme_textsize" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginTop="@dimen/btn_margin_top"
+            android:background="@drawable/btn_bg_blue"
+            android:onClick="search"
+            android:text="@string/search"
+            android:textColor="@color/white"
+            android:textSize="@dimen/theme_textsize" >
+        </Button>
+    </LinearLayout>
+
+</com.free.ui.view.OverScrollView>
