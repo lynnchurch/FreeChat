@@ -65,6 +65,7 @@ public class AddFriendActivity extends BaseActivity {
 			return;
 		}
 
+		
 		new Thread(new Runnable() {
 			public void run() {
 				try {
