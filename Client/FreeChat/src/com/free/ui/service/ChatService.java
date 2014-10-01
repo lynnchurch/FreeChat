@@ -40,21 +40,17 @@ import android.util.Log;
 public class ChatService extends Service {
 
 	private Context context;
-	private NotificationManager notificationManager;
 	private FCConfig config;
 	private NoticeDao noticeDao;
 	private FCMessageDao fCMessageDao;
 	private ChatManager chatManager;
-	private FCApplication application;
 
 	@Override
 	public void onCreate() {
 		context = this;
 		config = FCConfig.getInstance();
-		notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 		noticeDao = NoticeDao.getInstance(context);
 		fCMessageDao = FCMessageDao.getInstance(context);
-		application = (FCApplication) getApplication();
 		super.onCreate();
 	}
 
@@ -104,7 +100,6 @@ public class ChatService extends Service {
 						String nickname = NameUtils.getNickname(username);// 发送方昵称
 
 						String content = message.getBody();// 消息内容
-//						Log.e("content", content);
 						fCMessage.setWith(username);
 						fCMessage.setContent(content);
 						fCMessage.setCondition(FCMessage.SUCCESS);
@@ -121,12 +116,10 @@ public class ChatService extends Service {
 						notice.setStatus(Notice.UNREAD);
 						notice.setTime(DateUtils.getCurDateStr());
 						notice.setTitle(nickname);
-						// Log.e("save", "save");
 
 						// 保存消息通知到数据库中
 						if (noticeDao.isExistFrom(username, whose)) {
 							noticeDao.delNoticeByFrom(username, whose);
-							// Log.e("del", "del");
 						}
 						noticeDao.saveNotice(notice, whose);
 						// 发送聊天消息广播

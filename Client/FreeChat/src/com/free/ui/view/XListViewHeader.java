@@ -120,7 +120,7 @@ public class XListViewHeader extends LinearLayout {
 		case STATE_SUCCESS:
 			mArrowImageView.setVisibility(View.GONE);
 			mTipImageView.setVisibility(View.VISIBLE);
-			mTipImageView.setImageResource(R.drawable.refresh_sucess);
+			mTipImageView.setImageResource(R.drawable.refresh_success);
 			mHintTextView.setText(TIP_HEADER_SUCCESS);
 			break;
 		case STATE_FAILED:

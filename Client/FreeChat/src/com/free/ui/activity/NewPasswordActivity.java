@@ -90,6 +90,7 @@ public class NewPasswordActivity extends BaseActivity {
 			new Thread(new Runnable() {
 				public void run() {
 					try {
+						// 修改密码
 						FCHttpClient.getInstance().doPost(
 								FCConfig.USER_SERVICE_URL
 										+ "?type=update&secret=4TkN2iia&"

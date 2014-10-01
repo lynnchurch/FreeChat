@@ -75,11 +75,11 @@ public class LoginActivity extends BaseActivity {
 				.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
-	public void findPassword(View view){
-		Intent intent=new Intent(this,FindPasswordActivity.class);
+	public void findPassword(View view) {
+		Intent intent = new Intent(this, FindPasswordActivity.class);
 		startActivity(intent);
 	}
-	
+
 	/*
 	 * 用户登录
 	 */
@@ -100,11 +100,10 @@ public class LoginActivity extends BaseActivity {
 			return;
 		}
 		// 执行异步登录任务
-		LoginTask loginTask = new LoginTask(this, user, pwd);
-		loginTask.execute();
+		LoginTask loginTask = new LoginTask(this);
+		loginTask.execute(user, pwd);
 
 	}
-
 
 	/**
 	 * 捕获返回键

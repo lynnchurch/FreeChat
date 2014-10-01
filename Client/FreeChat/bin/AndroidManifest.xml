@@ -101,6 +101,12 @@
             android:theme="@style/BackTitleBarStyle"
             android:windowSoftInputMode="stateVisible" >
         </activity>
+        <activity
+            android:name="com.free.ui.activity.ChangePortraitActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/DialogStyle" >
+        </activity>
 
         <service android:name="com.free.ui.service.ContactsService" >
         </service>

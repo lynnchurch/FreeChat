@@ -20,8 +20,10 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 
@@ -124,7 +126,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void onStart() {
 		super.onStart();
-		Map<String, String> result = null;
 		try {
 			result = FCContactsManager.search(config.getUsername());
 		} catch (FCException e) {
@@ -270,5 +271,15 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		super.onDestroy();
 		stopService();
 		XmppConnectionManager.disConnect();
+	}
+
+	/**
+	 * 更换头像
+	 * 
+	 * @param view
+	 */
+	public void changePortrait(View view) {
+		Intent intent = new Intent(this, ChangePortraitActivity.class);
+		startActivity(intent);
 	}
 }

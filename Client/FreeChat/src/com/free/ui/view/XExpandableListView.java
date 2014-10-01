@@ -323,7 +323,7 @@ public class XExpandableListView extends ExpandableListView implements
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 			mLastY = ev.getRawY();
-			if (tipping) {// modified by lixinyu at 2013-12-12
+			if (tipping) {
 				handler.removeCallbacks(r);
 				mHeaderView.setState(XListViewHeader.STATE_RECOVERY);
 				tipping = false;
@@ -357,7 +357,6 @@ public class XExpandableListView extends ExpandableListView implements
 				if (mEnablePullRefresh
 						&& mHeaderView.getVisiableHeight() > mHeaderViewHeight) {
 
-					// modified by lixinyu, avoid another refresh thread start
 					// before last stopped
 					if (mListViewListener != null && !mPullRefreshing) {
 						mListViewListener.onRefresh();
@@ -367,8 +366,6 @@ public class XExpandableListView extends ExpandableListView implements
 				}
 				resetHeaderHeight();
 			}
-			// modified by lixinyu at 2013-12-10, change 'else if' statement to
-			// 'if'
 			// when the ListView is too short,it is necessary
 			if (getLastVisiblePosition() == mTotalItemCount - 1) {
 				// invoke load more.

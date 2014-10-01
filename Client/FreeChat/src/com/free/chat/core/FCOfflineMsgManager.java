@@ -82,7 +82,7 @@ public class FCOfflineMsgManager {
 			// 更新状态为在线
 			connection.sendPacket(new Presence(Presence.Type.available));
 		} catch (Exception e) {
-			e.printStackTrace();
+			Log.e("exception",e.getMessage());
 		}
 
 	}

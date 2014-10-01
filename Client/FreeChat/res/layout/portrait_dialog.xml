@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:orientation="vertical"
+        android:padding="5dip" >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/photo_gallery_selector"
+            android:onClick="camera"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="拍照"
+            android:textColor="@color/lightskyblue"
+            android:textSize="@dimen/theme_textsize" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.5dip"
+            android:background="#DAD9DB" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/photo_camera_selector"
+            android:onClick="gallery"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="从相册选择"
+            android:textColor="@color/lightskyblue"
+            android:textSize="@dimen/theme_textsize" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/photo_cancel_selector"
+            android:onClick="cancel"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="取消"
+            android:textColor="@color/lightskyblue"
+            android:textSize="@dimen/theme_textsize" />
+    </LinearLayout>
+
+</RelativeLayout>

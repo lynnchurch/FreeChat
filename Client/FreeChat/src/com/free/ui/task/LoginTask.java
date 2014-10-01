@@ -1,7 +1,5 @@
 package com.free.ui.task;
 
-import org.jivesoftware.smack.packet.Presence;
-
 import com.free.chat.core.FCAccountManager;
 import com.free.chat.core.FCOfflineMsgManager;
 import com.free.ui.FCApplication;
@@ -25,17 +23,13 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 	private FCConfig config;
 
 	private CustomProgressDialog cpd;
-	private String username;
-	private String pwd;
 
-	public LoginTask(BaseActivity baseActivity, String username, String pwd) {
+	public LoginTask(BaseActivity baseActivity) {
 		this.baseActivity = baseActivity;
 		config = baseActivity.getConfig();
 		application = baseActivity.getFCApplication();
 		context = baseActivity.getContext();
 		cpd = CustomProgressDialog.createDialog(context);
-		this.username = username;
-		this.pwd = pwd;
 	}
 
 	@Override
@@ -47,7 +41,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 
 	@Override
 	protected Integer doInBackground(String... params) {
-		return login();
+		return login(params[0],params[1]);
 	}
 
 	@Override
@@ -59,8 +53,6 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 		cpd.dismiss();
 		switch (result) {
 		case SUCCESS:
-			// 开启各项服务
-			baseActivity.startService();
 			Intent intent = new Intent(context, MainActivity.class);
 			baseActivity.startActivity(intent);
 			break;
@@ -74,7 +66,7 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 		super.onPostExecute(result);
 	}
 
-	private Integer login() {
+	private Integer login(String username,String pwd) {
 		try {
 			FCAccountManager.login(username, pwd);
 			// 保存用户名
@@ -82,6 +74,8 @@ public class LoginTask extends AsyncTask<String, Integer, Integer> {
 			application.saveConfig(config);
 			// 获取离线消息
 			FCOfflineMsgManager.dealOfflineMsg(context);
+			// 开启各项服务
+			baseActivity.startService();
 			return SUCCESS;
 
 		} catch (final Exception e) {

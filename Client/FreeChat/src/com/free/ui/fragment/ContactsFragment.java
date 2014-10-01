@@ -33,7 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ContactsFragment extends Fragment {
-	private XExpandableListView xExpandablelistview;
+	private XExpandableListView xExpandableListview;
 	private TextView addTextView;
 	// 联系人列表
 	private List<User> users;
@@ -55,14 +55,14 @@ public class ContactsFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		// 配置XExpandableListView实例
-		xExpandablelistview = (XExpandableListView) getActivity().findViewById(
+		xExpandableListview = (XExpandableListView) getActivity().findViewById(
 				R.id.expandable_listview);
 		// 设置下拉可用
-		xExpandablelistview.setPullRefreshEnable(true);
+		xExpandableListview.setPullRefreshEnable(true);
 		// 设置上拉不可用
-		xExpandablelistview.setPullLoadEnable(false);
+		xExpandableListview.setPullLoadEnable(false);
 		// 设置刷新监听器
-		xExpandablelistview
+		xExpandableListview
 				.setXListViewListener(new XExpandableListView.IXListViewListener() {
 					public void onRefresh() {
 						// 刷新时所执行的任务
@@ -94,12 +94,12 @@ public class ContactsFragment extends Fragment {
 																.getSignature());
 									}
 								}
-
-								adapter.notifyDataSetChanged();
-
+								
+								// 更新UI
 								getActivity().runOnUiThread(new Runnable() {
 									public void run() {
-										xExpandablelistview.stopRefresh();
+										adapter.notifyDataSetChanged();
+										xExpandableListview.stopRefresh();
 									}
 								});
 
@@ -114,7 +114,7 @@ public class ContactsFragment extends Fragment {
 					}
 				});
 
-		xExpandablelistview.setOnChildClickListener(new OnChildClickListener() {
+		xExpandableListview.setOnChildClickListener(new OnChildClickListener() {
 			@Override
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
@@ -130,7 +130,7 @@ public class ContactsFragment extends Fragment {
 			}
 		});
 
-		xExpandablelistview
+		xExpandableListview
 				.setOnCreateContextMenuListener(new OnCreateContextMenuListener() {
 					@Override
 					public void onCreateContextMenu(ContextMenu menu, View v,
@@ -159,6 +159,6 @@ public class ContactsFragment extends Fragment {
 		groups = GroupUtils.getGroups(users);
 		friends = GroupUtils.getFriends(users);
 		adapter = new ContactsAdapter(this.getActivity(), groups, friends);
-		xExpandablelistview.setAdapter(adapter);
+		xExpandableListview.setAdapter(adapter);
 	}
 }

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class CustomProgressDialog extends Dialog {
 	private static CustomProgressDialog customProgressDialog = null;
-	private static Context context=null;
+	private static Context context = null;
 
 	private CustomProgressDialog(Context context) {
 		super(context);
@@ -21,14 +21,13 @@ public class CustomProgressDialog extends Dialog {
 	}
 
 	public static CustomProgressDialog createDialog(Context _context) {
-		// 判断是否为同一Context对象，仅仅判断customProgressDialog是否为null会出现异常
-		if (customProgressDialog == null||context!=_context) {
-			context=_context;
+		if (customProgressDialog == null || context != _context) {
+			context = _context;
 			customProgressDialog = new CustomProgressDialog(_context,
-					R.style.CustomProgressDialog);
+					R.style.CustomProgressDialogStyle);
 			customProgressDialog
 					.setContentView(R.layout.custom_progress_dialog);
-			customProgressDialog.getWindow().getAttributes().gravity = Gravity.CENTER;
+			customProgressDialog.getWindow().getAttributes().gravity = Gravity.TOP;
 			customProgressDialog.setCancelable(false);
 		}
 		return customProgressDialog;
@@ -36,7 +35,7 @@ public class CustomProgressDialog extends Dialog {
 
 	public void onWindowFocusChanged(boolean hasFocus) {
 
-		ImageView imageView = (ImageView) findViewById(R.id.password_animation);
+		ImageView imageView = (ImageView) findViewById(R.id.animation);
 		AnimationDrawable animationDrawable = (AnimationDrawable) imageView
 				.getBackground();
 		animationDrawable.start();

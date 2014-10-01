@@ -64,7 +64,7 @@ public class ChatActivity extends BaseActivity {
 	@Override
 	public void onStop() {
 		super.onStop();
-//		unregisterReceiver(receiver);
+		unregisterReceiver(receiver);
 	}
 
 	@Override

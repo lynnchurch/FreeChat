@@ -39,6 +39,7 @@
     <string name="find_hint">请输入注册时所用邮箱。</string>
     <string name="new_password">新密码</string>
     <string name="confirm">确认</string>
+    <string name="portrait">头像</string>
 
     <!-- 缺省的登录设置 -->
     <bool name="is_remember">false</bool>
